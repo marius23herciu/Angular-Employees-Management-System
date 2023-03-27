@@ -1,0 +1,23 @@
+
+<body>
+  <ul>
+    <li><a class="active" href="#">Employees.Db</a></li>
+    <li  *ngIf="!(auth.isAuthenticated$ | async) ; else authLinks">
+      <a   routerLink="login">
+          Login/Register</a>
+    </li>
+    <ng-template #authLinks>
+      <li>
+        <a routerLink="/employees" routerLinkActive="text-indigo-400">Employees</a>
+      </li> 
+      <li>
+        <a routerLink="/employees/add" routerLinkActive="text-indigo-400">Add Employee</a>
+      </li> 
+      <li>
+        <a  routerLink="/departments" routerLinkActive="text-indigo-400">Departments</a>
+      </li> 
+      <button type="button" class="logoutButton"  style="float:right" (click)="auth.logout()">Logout</button>
+    </ng-template>
+  </ul>
+  </body>
+
